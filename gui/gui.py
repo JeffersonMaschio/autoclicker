@@ -1,7 +1,7 @@
 import customtkinter as ctk
 
 
-app = ctk.CTk(fg_color="#222222") 
+app = ctk.CTk(fg_color="#1a1a1a") 
 
 fonteTitulo = ctk.CTkFont(size=15, weight="bold")          
 fonteLabel  = ctk.CTkFont(size=12)
@@ -21,7 +21,7 @@ app.resizable(False, False)
 
 
 frame = ctk.CTkFrame(app,
-    fg_color="#d95f3b"
+    fg_color="#1a1a1a" ##d95f3b
 )
 frame.pack(fill="both", expand=True, pady=10, padx=10)
 
@@ -50,7 +50,7 @@ vcmd = (app.register(validar_numero), "%P")
 #FrameTop                                                                                          #
 #===================================================================================================
 
-frameTop = ctk.CTkFrame(frame, fg_color="#222222")
+frameTop = ctk.CTkFrame(frame, fg_color="#222222", border_color="#c0c0c0", border_width=1)
 frameTop.grid(row=0, column=0, columnspan=2, sticky="new", padx=5, pady=5)
  
 # Title Label
@@ -113,7 +113,7 @@ frameRight.grid_columnconfigure(0, weight=1)
 #-------------
 #FrameRepeat
 
-frameRepeat = ctk.CTkFrame(frameRight, fg_color="#222222")
+frameRepeat = ctk.CTkFrame(frameRight, fg_color="#222222", border_color="#c0c0c0", border_width=1)
 frameRepeat.grid(row=0, column=0, sticky="new", padx=5, pady=5)
 
 labelRepeat = ctk.CTkLabel(frameRepeat, text="[ Click Repeat ]", font=fonteTitulo)
@@ -136,7 +136,7 @@ chbRepeatStop.grid(row=2, column=0, sticky="w", padx=5, pady=5)
 #-------------
 #FrameCLickOption
 
-frameCO = ctk.CTkFrame(frameRight, fg_color="#222222")
+frameCO = ctk.CTkFrame(frameRight, fg_color="#222222", border_color="#c0c0c0", border_width=1)
 frameCO.grid(row=2, column=0, sticky="new", padx=5, pady=(3, 0))
 
 labelCO = ctk.CTkLabel(frameCO, text="[ Click Option ]", font=fonteTitulo)
@@ -177,7 +177,7 @@ frameLeft.grid_columnconfigure(0, weight=1)
 #-------------
 #FrameCursorPosition
 
-framePosition = ctk.CTkFrame(frameLeft, height=100, fg_color="#222222")
+framePosition = ctk.CTkFrame(frameLeft, height=100, fg_color="#222222", border_color="#c0c0c0", border_width=1)
 framePosition.grid(row=1, column=0, sticky="new", padx=5, pady=5)
 
 labelPosition = ctk.CTkLabel(framePosition, text="[ Cursor Position ]", font=fonteTitulo)
@@ -197,19 +197,21 @@ setPosition.grid(padx=5, pady=5, sticky="w")
 #-------------
 #FrameStartHotkey
 
-frameStart = ctk.CTkFrame(frameLeft, height=100, fg_color="#222222")
+frameStart = ctk.CTkFrame(frameLeft, height=100, fg_color="#222222", border_color="#c0c0c0", border_width=1)
 frameStart.grid(row=2, column=0, sticky="new", padx=5, pady=5)
 
 startLabel = ctk.CTkLabel(frameStart, text="[ Controller ]", font=fonteTitulo)
 startLabel.grid(row=0, column=0, sticky="w", padx=10, pady=(3, 0))
 
 startBt = ctk.CTkButton(frameStart, text="Start",
-    width=180
+    width=180,
+    fg_color="#2e2e2e"
 )
 startBt.grid(row=1, column=0, padx=(5, 0), pady=(0,5))
 
 hotkeyBt = ctk.CTkButton(frameStart, text="Hotkey",
-    width=180
+    width=180,
+    fg_color="#2e2e2e"
 )
 hotkeyBt.grid(row=2, column=0, padx=(5, 0), pady=(5, 8))
 
