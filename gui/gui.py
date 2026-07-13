@@ -1,8 +1,13 @@
 import customtkinter as ctk
 
+
 app = ctk.CTk(fg_color="#222222") 
 
-largura, altura = 450, 315 
+fonteTitulo = ctk.CTkFont(size=15, weight="bold")          
+fonteLabel  = ctk.CTkFont(size=12)
+fonteEntry  = ctk.CTkFont(family="JetBrainsMono Nerd Font Propo", size=13)   
+
+largura, altura = 450, 320 
 
 largura_tela = app.winfo_screenwidth()
 altura_tela = app.winfo_screenheight()
@@ -49,11 +54,13 @@ frameTop = ctk.CTkFrame(frame, fg_color="#222222")
 frameTop.grid(row=0, column=0, columnspan=2, sticky="new", padx=5, pady=5)
  
 # Title Label
-labelTime = ctk.CTkLabel(frameTop, text="Click Interval")
-labelTime.grid(row=0, column=0, columnspan=2)
+labelTime = ctk.CTkLabel(frameTop, text="[ Click Interval ]",
+    font=fonteTitulo
+)
+labelTime.grid(row=0, column=0, columnspan=8, sticky="w", padx=10, pady=(3, 0))
 
 # Hour
-labelHour = ctk.CTkLabel(frameTop, text="Hours") 
+labelHour = ctk.CTkLabel(frameTop, text="Hours", font=fonteLabel) 
 labelHour.grid(row=1, column=1)
 
 entryHour = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
@@ -63,7 +70,7 @@ entryHour.grid(row=1, column=0, padx=5, pady=5)
  
  
  # Minutes
-labelMin = ctk.CTkLabel(frameTop, text="Minutes")
+labelMin = ctk.CTkLabel(frameTop, text="Minutes", font=fonteLabel)
 labelMin.grid(row=1, column=3)
 
 entryMin = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
@@ -73,7 +80,7 @@ entryMin.grid(row=1, column=2, padx=5, pady=5)
 
  
 # Seconds
-labelSec = ctk.CTkLabel(frameTop, text="Seconds")
+labelSec = ctk.CTkLabel(frameTop, text="Seconds", font=fonteLabel)
 labelSec.grid(row=1, column=5)
 
 entrySec = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
@@ -83,7 +90,7 @@ entrySec.grid(row=1, column=4, padx=5, pady=5)
 
 
 # Milliseconds
-labelMil = ctk.CTkLabel(frameTop, text="Millisec")
+labelMil = ctk.CTkLabel(frameTop, text="Millisec", font=fonteLabel)
 labelMil.grid(row=1, column=7)
 
 entryMil = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
@@ -109,17 +116,19 @@ frameRight.grid_columnconfigure(0, weight=1)
 frameRepeat = ctk.CTkFrame(frameRight, fg_color="#222222")
 frameRepeat.grid(row=0, column=0, sticky="new", padx=5, pady=5)
 
-labelRepeat = ctk.CTkLabel(frameRepeat, text="Click Repeat")
-labelRepeat.grid(row=0, column=0)
+labelRepeat = ctk.CTkLabel(frameRepeat, text="[ Click Repeat ]", font=fonteTitulo)
+labelRepeat.grid(row=0, column=0, sticky="w", padx=10, pady=(3, 0))
  
 chbRepeat = ctk.CTkCheckBox(frameRepeat, text="Repeat",
-    border_width=1.5
+    border_width=1.5,
+    font=fonteLabel
 )
 chbRepeat.grid(row=1, column=0, sticky="w", padx=5, pady=5)
 
 
 chbRepeatStop = ctk.CTkCheckBox(frameRepeat, text="Repear until stoped",
-    border_width=1.5
+    border_width=1.5,
+    font=fonteLabel
 )
 chbRepeatStop.grid(row=2, column=0, sticky="w", padx=5, pady=5)
 
@@ -130,10 +139,10 @@ chbRepeatStop.grid(row=2, column=0, sticky="w", padx=5, pady=5)
 frameCO = ctk.CTkFrame(frameRight, fg_color="#222222")
 frameCO.grid(row=2, column=0, sticky="new", padx=5, pady=(3, 0))
 
-labelCO = ctk.CTkLabel(frameCO, text="Click Option")
-labelCO.grid(row=0, column=0)
+labelCO = ctk.CTkLabel(frameCO, text="[ Click Option ]", font=fonteTitulo)
+labelCO.grid(row=0, column=0, sticky="w", padx=10, pady=(3, 0))
 
-mouseLabel = ctk.CTkLabel(frameCO, text="Mouse Button")
+mouseLabel = ctk.CTkLabel(frameCO, text="Mouse Button", font=fonteLabel)
 mouseLabel.grid(row=1, column=0, padx=(15, 0), sticky="w")
 
 cmbMouse = ctk.CTkComboBox(frameCO,
@@ -142,7 +151,7 @@ cmbMouse = ctk.CTkComboBox(frameCO,
 )
 cmbMouse.grid(row=1, column=1, padx=(7, 0), pady=5)
 
-typeLabel = ctk.CTkLabel(frameCO, text="Click Type")
+typeLabel = ctk.CTkLabel(frameCO, text="Click Type", font=fonteLabel)
 typeLabel.grid(row=2, column=0, padx=(15, 0), sticky="w")
 
 cmbType = ctk.CTkComboBox(frameCO,
@@ -171,8 +180,8 @@ frameLeft.grid_columnconfigure(0, weight=1)
 framePosition = ctk.CTkFrame(frameLeft, height=100, fg_color="#222222")
 framePosition.grid(row=1, column=0, sticky="new", padx=5, pady=5)
 
-labelPosition = ctk.CTkLabel(framePosition, text="Cursor Position")
-labelPosition.grid() 
+labelPosition = ctk.CTkLabel(framePosition, text="[ Cursor Position ]", font=fonteTitulo)
+labelPosition.grid(row=0, column=0, sticky="w", padx=10, pady=(3, 0)) 
 
 takePosition = ctk.CTkCheckBox(framePosition, text="Current Mouse Position",
     border_width=1.5
@@ -191,18 +200,18 @@ setPosition.grid(padx=5, pady=5, sticky="w")
 frameStart = ctk.CTkFrame(frameLeft, height=100, fg_color="#222222")
 frameStart.grid(row=2, column=0, sticky="new", padx=5, pady=5)
 
-startLabel = ctk.CTkLabel(frameStart, text="Controller")
-startLabel.grid(row=0, column=0)
+startLabel = ctk.CTkLabel(frameStart, text="[ Controller ]", font=fonteTitulo)
+startLabel.grid(row=0, column=0, sticky="w", padx=10, pady=(3, 0))
 
 startBt = ctk.CTkButton(frameStart, text="Start",
     width=180
 )
-startBt.grid(row=1, column=0, padx=(13, 0), pady=(0,5))
+startBt.grid(row=1, column=0, padx=(5, 0), pady=(0,5))
 
 hotkeyBt = ctk.CTkButton(frameStart, text="Hotkey",
     width=180
 )
-hotkeyBt.grid(row=2, column=0, padx=(13, 0), pady=(5, 8))
+hotkeyBt.grid(row=2, column=0, padx=(5, 0), pady=(5, 8))
 
 
 
