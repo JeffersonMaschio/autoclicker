@@ -2,7 +2,7 @@ import os
 import customtkinter as ctk
 import pyglet
 
-# 1. Caminho para a pasta onde você salvou as fontes
+# 1. Caminho para a pasta das fontes
 font_dir = os.path.join(os.path.dirname(__file__), "..", "assets")
 
 # 2. Carrega as fontes direto na memória do app
@@ -17,7 +17,7 @@ fonteTitulo = ctk.CTkFont(family="Rubik", size=15, weight="bold")
 fonteLabel  = ctk.CTkFont(family="Rubik", size=12)
 fonteEntry  = ctk.CTkFont(family="Rubik", size=13)   
 
-largura, altura = 450, 320 
+largura, altura = 440, 315
 
 largura_tela = app.winfo_screenwidth()
 altura_tela = app.winfo_screenheight()
@@ -31,9 +31,9 @@ app.resizable(False, False)
 
 
 frame = ctk.CTkFrame(app,
-    fg_color="#1a1a1a" ##d95f3b
+    fg_color="#1a1a1a"
 )
-frame.pack(fill="both", expand=True, pady=10, padx=10)
+frame.pack(fill="both", expand=True, pady=5, padx=5)
 
 frame.grid_rowconfigure(0, weight=0)
 frame.grid_rowconfigure(1, weight=0)
@@ -78,8 +78,7 @@ entryHour = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
     validate="key", validatecommand=vcmd, text_color="#c0c0c0"
 )
 entryHour.grid(row=1, column=0, padx=(5, 3), pady=5)
- 
- 
+
  # Minutes
 labelMin = ctk.CTkLabel(frameTop, text="Minutes", font=fonteLabel, text_color="#c0c0c0")
 labelMin.grid(row=1, column=3)
@@ -88,7 +87,6 @@ entryMin = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
     validate="key", validatecommand=vcmd, text_color="#c0c0c0"
 )
 entryMin.grid(row=1, column=2, padx=3, pady=5)
-
  
 # Seconds
 labelSec = ctk.CTkLabel(frameTop, text="Seconds", font=fonteLabel, text_color="#c0c0c0")
@@ -98,7 +96,6 @@ entrySec = ctk.CTkEntry(frameTop, placeholder_text="0", width=50,
     validate="key", validatecommand=vcmd, text_color="#c0c0c0"
 )
 entrySec.grid(row=1, column=4, padx=3, pady=5)
-
 
 # Milliseconds
 labelMil = ctk.CTkLabel(frameTop, text="Millisecs", font=fonteLabel, text_color="#c0c0c0")
@@ -137,8 +134,7 @@ chbRepeat = ctk.CTkCheckBox(frameRepeat, text="Repeat",
     checkmark_color="#2e2e2e",
     fg_color="#c0c0c0"
 )
-chbRepeat.grid(row=1, column=0, sticky="w", padx=5, pady=5)
-
+chbRepeat.grid(row=1, column=0, sticky="w", padx=(10, 0), pady=5)
 
 chbRepeatStop = ctk.CTkCheckBox(frameRepeat, text="Repear until stopped",
     border_width=1.5,
@@ -148,7 +144,7 @@ chbRepeatStop = ctk.CTkCheckBox(frameRepeat, text="Repear until stopped",
     fg_color="#c0c0c0",
     checkmark_color="#2e2e2e"
 )
-chbRepeatStop.grid(row=2, column=0, sticky="w", padx=5, pady=5)
+chbRepeatStop.grid(row=2, column=0, sticky="w", padx=(10, 0), pady=(5, 7))
 
 
 #-------------
@@ -163,10 +159,15 @@ labelCO.grid(row=0, column=0, sticky="w", padx=(10, 0), pady=(3, 0))
 mouseLabel = ctk.CTkLabel(frameCO, text="Mouse Button", font=fonteEntry, text_color="#c0c0c0")
 mouseLabel.grid(row=1, column=0, padx=(15, 0), sticky="w")
 
-cmbMouse = ctk.CTkComboBox(frameCO,
+cmbMouse = ctk.CTkOptionMenu(frameCO,
     values=["Left", "Right", "Middle"],
     width=85,
-    dropdown_fg_color="#222222",
+    fg_color="#343638",
+    button_color="#2e2e2e",
+    button_hover_color="#4f4f4f",
+    dropdown_fg_color="#1a1a1a",
+    dropdown_text_color="#c0c0c0",
+    dropdown_font=fonteEntry,
     text_color="#c0c0c0"
 )
 cmbMouse.grid(row=1, column=1, pady=5)
@@ -174,9 +175,15 @@ cmbMouse.grid(row=1, column=1, pady=5)
 typeLabel = ctk.CTkLabel(frameCO, text="Click Type", font=fonteEntry, text_color="#c0c0c0")
 typeLabel.grid(row=2, column=0, padx=(15, 0), sticky="w")
 
-cmbType = ctk.CTkComboBox(frameCO,
+cmbType = ctk.CTkOptionMenu(frameCO,
     values=["Single", "Double"],
     width=85,
+    fg_color="#343638",
+    button_color="#2e2e2e",
+    button_hover_color="#4f4f4f",
+    dropdown_fg_color="#1a1a1a",
+    dropdown_text_color="#c0c0c0",
+    dropdown_font=fonteEntry,
     text_color="#c0c0c0",
 )
 cmbType.grid(row=2, column=1, pady=5)
@@ -212,7 +219,7 @@ takePosition = ctk.CTkCheckBox(framePosition, text="Current Mouse Position",
     fg_color="#c0c0c0",
     checkmark_color="#2e2e2e"
 )
-takePosition.grid(padx=5, pady=5, sticky="w")
+takePosition.grid(padx=(10, 0), pady=5, sticky="w")
 
 setPosition = ctk.CTkCheckBox(framePosition, text="Set Location",
     border_width=1.5,
@@ -221,7 +228,7 @@ setPosition = ctk.CTkCheckBox(framePosition, text="Set Location",
     fg_color="#c0c0c0",
     checkmark_color="#2e2e2e"
 )
-setPosition.grid(padx=5, pady=5, sticky="w")
+setPosition.grid(padx=(10, 0), pady=(5, 7), sticky="w")
 
 
 #-------------
@@ -242,7 +249,9 @@ startBt = ctk.CTkButton(frameStart, text="Start",
     width=180,
     fg_color="#2e2e2e",
     hover_color="#4f4f4f",
-    text_color="#c0c0c0"
+    text_color="#c0c0c0",
+    border_width=1,
+    border_color="#c0c0c0"
 )
 startBt.grid(row=1, column=0, padx=(10, 0), pady=(0,5), sticky="nse")
 
@@ -250,7 +259,9 @@ hotkeyBt = ctk.CTkButton(frameStart, text="Hotkey",
     width=180,
     fg_color="#2e2e2e",
     hover_color="#4f4f4f",
-    text_color="#c0c0c0"
+    text_color="#c0c0c0",
+    border_width=1,
+    border_color="#c0c0c0"
 )
 hotkeyBt.grid(row=2, column=0, padx=(10, 0), pady=(5, 8), sticky="nse")
 
