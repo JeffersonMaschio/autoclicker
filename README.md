@@ -28,9 +28,7 @@ O wireframe completo da interface (baseado no OP Auto Clicker) está documentado
 autoclicker/
 ├── gui/                  # Interface gráfica (CustomTkinter)
 ├── idea.py               # Wireframe e planejamento da UI (documentação)
-├── main.py               # Protótipo inicial (listener de mouse com pynput)
-├── OP-Auto-Clicker.jpg   # Referência visual
-└── autoCLickerIdea.png   # Rascunho da ideia
+└── main.py               # Protótipo inicial (listener de mouse com pynput)
 ```
 
 ## Como rodar
