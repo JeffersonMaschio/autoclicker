@@ -1,40 +1,55 @@
 # AutoClicker
 
-Um autoclicker para desktop escrito em Python, inspirado no **OP Auto Clicker**. O projeto está em estágio inicial de desenvolvimento, com a interface e as funcionalidades ainda sendo planejadas e implementadas.
+Um autoclicker desktop feito em Python, inspirado no [OP Auto Clicker](https://opautoclicker.com), com interface gráfica construída em CustomTkinter.
 
-## 📌 Status atual
+> ⚠️ Projeto em desenvolvimento inicial. A lógica de clique e a GUI ainda estão sendo construídas — este README descreve o objetivo e a arquitetura planejada do projeto.
 
-Este repositório ainda está em fase de prototipagem:
+## Sobre o projeto
 
-- `main.py` — teste inicial com a biblioteca `pynput`, capturando e imprimindo a posição do cursor do mouse em tempo real.
-- `idea.py` — documento de planejamento com wireframes em ASCII e anotações descrevendo a interface e o funcionamento pretendido do autoclicker (baseado no layout do OP Auto Clicker 2.1).
-- `gui/` — pasta reservada para a implementação da interface gráfica.
-- `OP-Auto-Clicker.jpg` / `autoCLickerIdea.png` — imagens de referência visual usadas no planejamento.
+O objetivo é criar um autoclicker multiplataforma com uma interface simples e configurável, permitindo:
 
-## 🎯 Funcionalidades planejadas
+- **Click Interval** — definir o intervalo entre cliques (horas, minutos, segundos, milissegundos)
+- **Click Options** — escolher o botão do mouse (esquerdo, direito, meio) e o tipo de clique (simples ou duplo)
+- **Click Repeat** — repetir um número específico de vezes ou até ser interrompido manualmente
+- **Cursor Position** — usar a posição atual do cursor ou fixar uma posição na tela (X, Y)
+- **Hotkey** — iniciar/parar o autoclicker através de uma tecla de atalho configurável
 
-Com base nas anotações do `idea.py`:
+O wireframe completo da interface (baseado no OP Auto Clicker) está documentado em [`idea.py`](./idea.py).
 
-- **Click Interval**: definir o intervalo entre cliques (horas, minutos, segundos, milissegundos).
-- **Click Options**: escolher botão do mouse (esquerdo/direito/meio) e tipo de clique (simples/duplo).
-- **Click Repeat**: repetir um número fixo de vezes ou até ser interrompido manualmente.
-- **Cursor Position**: usar a posição atual do mouse ou selecionar uma posição fixa na tela.
-- **Hotkey**: iniciar/parar o autoclicker através de uma tecla de atalho configurável (ex.: F6).
+## Tecnologias
 
-## 🛠️ Tecnologias
+- **Python 3**
+- **[pynput](https://pypi.org/project/pynput/)** — captura de eventos de mouse/teclado e simulação de cliques
+- **[CustomTkinter](https://github.com/TomSchimansky/CustomTkinter)** — interface gráfica
 
-- Python
-- [`pynput`](https://pypi.org/project/pynput/) para captura de eventos de mouse
+## Estrutura do repositório
 
-## 🚀 Como executar (estado atual)
+```
+autoclicker/
+├── gui/                  # Interface gráfica (CustomTkinter)
+├── idea.py               # Wireframe e planejamento da UI (documentação)
+├── main.py               # Protótipo inicial (listener de mouse com pynput)
+├── OP-Auto-Clicker.jpg   # Referência visual
+└── autoCLickerIdea.png   # Rascunho da ideia
+```
+
+## Como rodar
 
 ```bash
-pip install pynput
+git clone https://github.com/JeffersonMaschio/autoclicker.git
+cd autoclicker
+pip install requirements.txt 
 python main.py
 ```
 
-> No momento, `main.py` apenas exibe a posição do cursor no terminal — a lógica de clique automático e a interface gráfica ainda serão implementadas.
+## Roadmap
 
-## 📄 Licença
+- [ ] Implementar a lógica de clique automático (intervalo, repetição, botão do mouse)
+- [ ] Construir a GUI em CustomTkinter seguindo o wireframe
+- [ ] Suporte a hotkey configurável para iniciar/parar
+- [ ] Seleção de posição fixa do cursor (pick location)
+- [ ] Empacotamento do executável (PyInstaller)
 
-Ainda não definida.
+## Autor
+
+Desenvolvido por [Jefferson Maschio](https://github.com/JeffersonMaschio).
